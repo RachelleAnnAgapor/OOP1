@@ -1,12 +1,22 @@
-from django.conf.urls import url
-from .views import *
+"""inventory_management URL Configuration
 
-urlpatterns =[
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
 
-    url(r'^$', index, name= 'index'),
-
-    url(r'^display_laptops$', display_laptops, name='display_laptops'),
-    url(r'^display_desktops$', display_desktops, name='display_desktops'),
-    url(r'^display_mobiles$', display_mobiles, name='display_mobiles'),
-
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('inventory.urls'))
 ]
